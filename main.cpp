@@ -135,6 +135,15 @@ bool dfs(int r, int c,
     if (maze[r][c] == 1) {
         return false;
     }
+
+    // Already visited
+    if (visited[r][c]) {
+        return false;
+    }
+
+    // Mark it as visited
+    visited[r][c] = true;
+
     return false;
 }
 
