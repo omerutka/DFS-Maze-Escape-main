@@ -125,28 +125,17 @@ bool dfs(int r, int c,
          int exit_r, int exit_c) {
     int N = maze.size();
     int M = maze[0].size();
-
-    // Out of bounds
-    if (r < 0 || r >= N || c < 0 || c >= M) {
-        return false;
-    }
-
-    // Wall check
-    if (maze[r][c] == 1) {
-        return false;
-    }
-
-    // Already visited
-    if (visited[r][c]) {
-        return false;
-    }
-
-    // Mark it as visited
+    if (maze[r][c] == 1) return false;
+    if (visited[r][c]) return false;
     visited[r][c] = true;
+
+    // Exit condition
+    if (r == exit_r && c == exit_c) {
+        return true;
+    }
 
     return false;
 }
-
 
 // ----------------------------------------------------------
 // MAIN PROGRAM (students add DFS calls and logic)
