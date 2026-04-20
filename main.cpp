@@ -134,6 +134,16 @@ bool dfs(int r, int c,
         return true;
     }
 
+    // Exploring each direction
+    for (int i = 0; i < 4; i++) {
+        int nr = r + dr[i];
+        int nc = c + dc[i];
+
+        if (dfs(nr, nc, maze, visited, parent_r, parent_c, exit_r, exit_c)) {
+            return true;
+        }
+    }
+
     return false;
 }
 
