@@ -16,3 +16,12 @@ When I was implementing the recursive neighbor traversal, I struggled
 understanding how the return value propagates back through the recursive
 calls. I realized that returning true immediately when a recursive call 
 succeeds allows the algorithm to unwind correctly.
+
+### Entry 3
+**Date:** 4/22/2026
+
+When I initially added parent tracking, I put the parent assignment 
+outside the checks for validity, which caused incorrect paths to be 
+recorded. This led to issues when reconstructing the path, which then 
+led to broken sequences. I fixed this by making sure parent coordinates 
+are only assigned for valid, unvisited neighboring cells before recursion.

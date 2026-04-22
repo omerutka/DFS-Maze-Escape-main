@@ -125,6 +125,7 @@ bool dfs(int r, int c,
          int exit_r, int exit_c) {
     int N = maze.size();
     int M = maze[0].size();
+
     if (maze[r][c] == 1) return false;
     if (visited[r][c]) return false;
     visited[r][c] = true;
@@ -134,16 +135,22 @@ bool dfs(int r, int c,
         return true;
     }
 
-    // Exploring each direction
+    // Exploring each direction and setting parent before recursing for path reconstruction
     for (int i = 0; i < 4; i++) {
         int nr = r + dr[i];
         int nc = c + dc[i];
 
-        if (dfs(nr, nc, maze, visited, parent_r, parent_c, exit_r, exit_c)) {
-            return true;
+        if (nr >= 0 && nr < N && nc >= 0 && nc < M && maze[nr][nc] == 0 && !visited[nr][nc]) {
+
+            parent_r[nr][nc] = r;
+            parent_c[nr][nc] = c;
+
+            if (dfs(nr, nc, maze, visited, parent_r, parent_c, exit_r, exit_c)) {
+                return true;
+            }
         }
     }
-
+    // Dead end
     return false;
 }
 
