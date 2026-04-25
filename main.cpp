@@ -122,12 +122,19 @@ bool dfs(int r, int c,
          vector<vector<bool>>& visited,
          vector<vector<int>>& parent_r,
          vector<vector<int>>& parent_c,
-         int exit_r, int exit_c) {
+         int exit_r, int exit_c)
+{
     int N = maze.size();
     int M = maze[0].size();
 
+    // Check bounds first
+    if (r < 0 || r >= N || c < 0 || c >= M) return false;
+
+    // Base cases for visited, walls, and out of bounds
     if (maze[r][c] == 1) return false;
     if (visited[r][c]) return false;
+
+    // This is to prevent infinite loops and repeated exploration
     visited[r][c] = true;
 
     // Exit condition
@@ -142,6 +149,7 @@ bool dfs(int r, int c,
 
         if (nr >= 0 && nr < N && nc >= 0 && nc < M && maze[nr][nc] == 0 && !visited[nr][nc]) {
 
+            // Record the path so it can be reconstructed later
             parent_r[nr][nc] = r;
             parent_c[nr][nc] = c;
 
@@ -150,7 +158,7 @@ bool dfs(int r, int c,
             }
         }
     }
-    // Dead end
+    // No path found, so it backtracks
     return false;
 }
 

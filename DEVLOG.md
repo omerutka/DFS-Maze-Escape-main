@@ -25,3 +25,10 @@ outside the checks for validity, which caused incorrect paths to be
 recorded. This led to issues when reconstructing the path, which then 
 led to broken sequences. I fixed this by making sure parent coordinates 
 are only assigned for valid, unvisited neighboring cells before recursion.
+
+### Entry 4
+**Date:** 4/25./2026
+
+I mainly just added comments here since I'm not the best at adding them
+in the moment. I also added an explicit bounds check at the top of DFS 
+to guard against any out of bounds access before touching the maze array.
