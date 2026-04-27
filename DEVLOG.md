@@ -27,8 +27,16 @@ led to broken sequences. I fixed this by making sure parent coordinates
 are only assigned for valid, unvisited neighboring cells before recursion.
 
 ### Entry 4
-**Date:** 4/25./2026
+**Date:** 4/25/2026
 
 I mainly just added comments here since I'm not the best at adding them
 in the moment. I also added an explicit bounds check at the top of DFS 
 to guard against any out of bounds access before touching the maze array.
+
+### Entry 5
+**Date:** 4/27/2026
+
+I was thinking about edge cases and realized a 1x1 input would cause the
+entrance/exit selection loop to spin forever since both can't be different
+cells. Not sure why anyone would run a 1x1 maze, but added a quick check
+to catch it and exit with a message.

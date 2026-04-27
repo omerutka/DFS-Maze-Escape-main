@@ -127,10 +127,8 @@ bool dfs(int r, int c,
     int N = maze.size();
     int M = maze[0].size();
 
-    // Check bounds first
+    // Base cases to stop recursion for visited, walls, and out of bounds
     if (r < 0 || r >= N || c < 0 || c >= M) return false;
-
-    // Base cases for visited, walls, and out of bounds
     if (maze[r][c] == 1) return false;
     if (visited[r][c]) return false;
 
@@ -170,6 +168,11 @@ int main() {
 
     cout << "Enter maze dimensions N M: ";
     cin >> N >> M;
+
+    if (N == 1 && M == 1) {
+        cout << "Maze can't be 1x1.\n";
+        return 1;
+    }
 
     vector<vector<int>> maze(N, vector<int>(M));
     generateMaze(maze, N, M);
