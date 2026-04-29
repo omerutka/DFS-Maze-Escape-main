@@ -169,8 +169,8 @@ int main() {
     cout << "Enter maze dimensions N M: ";
     cin >> N >> M;
 
-    if (N == 1 && M == 1) {
-        cout << "Maze can't be 1x1.\n";
+    if (N <= 0 || M <= 0 || (N == 1 && M == 1)) {
+        cout << "Invalid dimensions. Must be positive and not 1x1.\n";
         return 1;
     }
 

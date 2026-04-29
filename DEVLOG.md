@@ -40,3 +40,13 @@ I was thinking about edge cases and realized a 1x1 input would cause the
 entrance/exit selection loop to spin forever since both can't be different
 cells. Not sure why anyone would run a 1x1 maze, but added a quick check
 to catch it and exit with a message.
+
+## Entry 6
+**Date:** 4/29/2026
+
+On my final commit, I focused on testing the program with multiple maze 
+sizes to make sure the DFS implementation did fine when there was a path 
+and when there was not a path. This helped confirm that the recursion, 
+visited tracking, and parent reconstruction were all working together 
+as intended. I also cleaned up the edge case validation by combining 
+the dimension checks into a single if statement.
